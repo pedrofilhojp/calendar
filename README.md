@@ -87,9 +87,8 @@ kubectl -n nginx-gateway get all
 
 Fluxo dos componentes do GatewayAPI do Kubernetes
 
-![alt text](image-2.png)
+![alt text](image.png)
 
-![alt text](image-3.png)
 ## Construir e carregar as imagens
 
 Execute na raiz do projeto:
@@ -125,7 +124,7 @@ Quando todos os pods estiverem `Running` ou `Ready`, acesse:
 Fluxo das requisições da aplicação
 ![alt text](image-2.png)
 
-
+![alt text](image-3.png)
 
 ## Instalar Metrics Server para testar o HPA
 
