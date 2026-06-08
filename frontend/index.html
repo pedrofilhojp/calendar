@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agenda K8s</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="auth-view" class="auth-view">
+        <div class="auth-panel">
+          <div>
+            <p class="eyebrow">Agenda Kubernetes</p>
+            <h1>Compromissos, filas e e-mails em uma arquitetura didática.</h1>
+          </div>
+          <form id="auth-form" class="auth-form">
+            <label>
+              E-mail
+              <input id="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Senha
+              <input id="password" type="password" autocomplete="current-password" minlength="8" required />
+            </label>
+            <div class="auth-actions">
+              <button type="submit" data-mode="login">Entrar</button>
+              <button type="button" id="register-button" class="ghost">Cadastrar</button>
+            </div>
+            <p id="auth-message" class="message"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="dashboard-view" class="dashboard-view hidden">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h1>Agenda de Compromissos</h1>
+          </div>
+          <div class="topbar-actions">
+            <button id="new-appointment-button">Novo compromisso</button>
+            <button id="logout-button" class="ghost">Sair</button>
+          </div>
+        </header>
+
+        <section class="metrics-grid">
+          <article class="metric-card">
+            <span>Total de Agendamentos</span>
+            <strong id="metric-total">0</strong>
+          </article>
+          <article class="metric-card urgent">
+            <span>Compromissos Urgentes Pendentes</span>
+            <strong id="metric-urgent">0</strong>
+          </article>
+          <article class="metric-card">
+            <span>Número de Convidados Notificados</span>
+            <strong id="metric-guests">0</strong>
+          </article>
+        </section>
+
+        <section class="workspace">
+          <div class="calendar-panel">
+            <div class="view-toolbar" role="group" aria-label="Visão do calendário">
+              <button id="month-view-button" class="view-button active" type="button">Mensal</button>
+              <button id="year-view-button" class="view-button" type="button">Anual</button>
+            </div>
+            <div class="calendar-header">
+              <button id="prev-period" class="icon-button" aria-label="Período anterior">‹</button>
+              <h2 id="calendar-title"></h2>
+              <button id="next-period" class="icon-button" aria-label="Próximo período">›</button>
+            </div>
+            <div id="month-calendar">
+              <div class="weekdays">
+                <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+              </div>
+              <div id="calendar-grid" class="calendar-grid"></div>
+            </div>
+            <div id="year-calendar" class="year-calendar hidden"></div>
+          </div>
+
+          <aside class="agenda-panel">
+            <h2>Próximos</h2>
+            <div id="priority-colors" class="priority-colors"></div>
+            <div id="appointment-list" class="appointment-list"></div>
+          </aside>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="appointment-dialog">
+      <form id="appointment-form" class="appointment-form" method="dialog">
+        <div class="dialog-head">
+          <h2 id="appointment-dialog-title">Novo compromisso</h2>
+          <button type="button" id="close-dialog" class="icon-button" aria-label="Fechar">×</button>
+        </div>
+        <label>
+          Título
+          <input id="title" type="text" maxlength="160" required />
+        </label>
+        <label>
+          Descrição
+          <textarea id="description" rows="4" maxlength="2000"></textarea>
+        </label>
+        <label>
+          Data e hora
+          <input id="event-time" type="datetime-local" required />
+        </label>
+        <label>
+          Prioridade <strong id="priority-label">3</strong>
+          <input id="priority" type="range" min="1" max="5" value="3" />
+        </label>
+        <label>
+          Convidados
+          <input id="guests" type="text" placeholder="ana@exemplo.com, joao@exemplo.com" />
+        </label>
+        <p id="appointment-message" class="message"></p>
+        <button id="save-appointment-button" type="submit">Salvar e notificar</button>
+      </form>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

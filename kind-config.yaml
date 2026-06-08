@@ -1,0 +1,20 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: cluster-agenda
+nodes:
+  - role: control-plane
+    # Publica a porta HTTP do Ingress Controller no host.
+    # Depois de instalar o GatewayAPI, acesse a aplicação em http://localhost:8080
+    extraPortMappings:
+      - containerPort: 31437
+        hostPort: 8080
+        protocol: TCP
+      - containerPort: 30478
+        hostPort: 8443
+        protocol: TCP        
+  - role: worker
+    labels:
+      node/type: spot
+  - role: worker
+    labels:
+      node/type: on-demand

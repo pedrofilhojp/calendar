@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: agenda-config
+  namespace: agenda
+data:
+  DB_HOST: postgres
+  DB_PORT: "5432"
+  DB_NAME: agenda
+  RABBITMQ_HOST: rabbitmq
+  SMTP_HOST: mailpit-smtp
+  SMTP_PORT: "1025"
