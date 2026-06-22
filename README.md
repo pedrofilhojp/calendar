@@ -25,7 +25,7 @@ kind version 0.32.0
 Execute a partir da raiz do projeto:
 
 ```bash
-kind create cluster --config kind/kind-config.yaml
+kind create cluster --config kind-config.yaml
 kubectl cluster-info --context kind-cluster-agenda
 kubectl get nodes
 ```
@@ -87,7 +87,7 @@ kubectl -n nginx-gateway get all
 
 Fluxo dos componentes do GatewayAPI do Kubernetes
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Construir e carregar as imagens
 
@@ -122,9 +122,9 @@ Quando todos os pods estiverem `Running` ou `Ready`, acesse:
 - Mailpit: `http://agenda.com:8080/emails/`
 
 Fluxo das requisições da aplicação
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 ## Instalar Metrics Server para testar o HPA
 

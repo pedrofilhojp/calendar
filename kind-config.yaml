@@ -11,10 +11,4 @@ nodes:
         protocol: TCP
       - containerPort: 30478
         hostPort: 8443
-        protocol: TCP        
-  - role: worker
-    labels:
-      node/type: spot
-  - role: worker
-    labels:
-      node/type: on-demand
+        protocol: TCP
